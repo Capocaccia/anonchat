@@ -1,28 +1,68 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <AddUser
+            v-if="!username"
+       v-on:close="closeModal"/>
+
+    <chatroom v-if="username"
+      :username="username"/>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddUser from './components/AddUser.vue'
+import db from './firebaseConfig'
+import chatroom from "./components/Chatroom";
 
 export default {
   name: 'app',
+  data() {
+    return {
+      database: db.database(),
+      dbRoot: db.database().ref('/'),
+      username: null
+    }
+  },
   components: {
-    HelloWorld
+    chatroom,
+    AddUser
+  },
+  methods: {
+    checkActiveUser() {
+      let name = window.localStorage.getItem('anonchatname')
+
+      if (name) {
+        this.username = name
+      }
+
+    },
+    closeModal () {
+      this.username = 'testing'
+    }
+  },
+  mounted() {
+    this.checkActiveUser()
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #EBEBF4;
+    display: flex;
+    justify-content: center;
+    background-color: #1F1F27;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
 </style>
