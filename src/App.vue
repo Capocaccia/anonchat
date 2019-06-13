@@ -46,7 +46,8 @@ export default {
 
     },
     closeModal () {
-      this.username = 'testing'
+      this.username = window.localStorage.getItem('anonchatname')
+
     }
   },
   mounted() {
