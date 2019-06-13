@@ -2,7 +2,7 @@
   "name": "firechat",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Capocaccia/fireChat",
+  "homepage": "https://github.com/Capocaccia/anonchat",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
