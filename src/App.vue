@@ -8,7 +8,7 @@
     <chatroom v-if="username"
       :username="username"/>
 
-    <UserList>
+    <UserList v-if="username">
     </UserList>
 
 
