@@ -8,7 +8,9 @@
                  v-for="(message, idx) in messages"
                  :key="idx">
                 <div class="message-user">
-                    {{message.user}}
+                    <span class="message-user-container">
+                        {{message.user}}
+                    </span>
                 </div>
                 <div class="message-text">
                     {{message.text}}
@@ -61,7 +63,6 @@
 <style scoped>
 
     .mine {
-        border: 1px solid #EBEBF4;
         background-color: #2C2C38 !important;
     }
 
@@ -83,15 +84,27 @@
         flex-direction: column;
         padding: 1rem;
         background-color: #1D1D25;
-
+        margin: 0.5rem;
+        border-radius: 10px 10px 10px 10px;
     }
 
     .message-user {
-        text-align: right;
+        width: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .message-user-container {
+        background-color: #1E2622;
+        padding: 0.25rem;
+        border-radius: 10px 10px 10px 10px;
     }
 
     .message-text {
         text-align: left;
+        font-size: 1rem;
+
     }
+
 
 </style>

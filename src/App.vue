@@ -8,6 +8,11 @@
     <chatroom v-if="username"
       :username="username"/>
 
+    <UserList>
+    </UserList>
+
+
+
   </div>
 </template>
 
@@ -15,6 +20,7 @@
 import AddUser from './components/AddUser.vue'
 import db from './firebaseConfig'
 import chatroom from "./components/Chatroom";
+import UserList from "./components/UserList";
 
 export default {
   name: 'app',
@@ -27,7 +33,8 @@ export default {
   },
   components: {
     chatroom,
-    AddUser
+    AddUser,
+    UserList
   },
   methods: {
     checkActiveUser() {
