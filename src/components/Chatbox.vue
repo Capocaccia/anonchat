@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="text" v-model="message">
-        <button class="submit" @click="sendMessage">Send</button>
+        <button class="submit" @click="sendMessage" @keyup.enter="sendMessage">Send</button>
     </div>
 </template>
 
